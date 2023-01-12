@@ -1,0 +1,506 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CategorieEleve {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type FraisExamen {
+  id: ID!
+  description: String
+  montant: Float!
+  dateLine: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type FraisInscription {
+  id: ID!
+  description: String
+  montant: Float!
+  dateLine: DateTime
+}
+
+type Cycle {
+  id: ID!
+  name: String
+  description: String
+}
+
+type Section {
+  id: ID!
+  name: String
+  description: String
+  effectif: Float!
+}
+
+type SectionCycle {
+  id: ID!
+  description: String
+}
+
+type NiveauEtude {
+  id: ID!
+  name: String
+  description: String
+}
+
+type CategoriePrime {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type Periode {
+  id: Float!
+  nom: String
+  description: String
+  datePeriode: DateTime
+}
+
+type CategorieRetenu {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type Retenue {
+  id: Float!
+  nom: String
+  description: String
+  montant: Float!
+}
+
+type RetenuPersonnel {
+  id: Float!
+}
+
+type PrimePersonnel {
+  id: Float!
+}
+
+type Prime {
+  id: Float!
+  nom: String
+  description: String
+  montant: Float!
+}
+
+type SalaireBase {
+  id: Float!
+  description: String
+  montant: Float!
+}
+
+type CategoriePersonnel {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type Personnel {
+  id: Float!
+  situationMatrimonial: String
+  sexe: String
+  fonction: String
+  status: String
+  dateOfStartWork: DateTime
+  dateOfBirth: DateTime
+  matricule: String
+  childNumber: Float!
+}
+
+type Salle {
+  id: ID!
+  name: String
+  description: String
+  effectif: Float
+}
+
+type TrancheStudent {
+  id: Float!
+  name: String
+  description: String
+  montant: Float!
+  regimePaimemnt: String!
+  complete: Boolean!
+  reste: Float!
+}
+
+type Tranche {
+  id: Float!
+  name: String
+  description: String
+  dateLine: DateTime
+  montant: Float!
+}
+
+type Pension {
+  id: Float!
+  name: String
+  description: String
+  montant: Float!
+  dateLine: DateTime
+}
+
+type AnneeAccademique {
+  id: Float!
+  name: String
+  description: String
+  anneeAccademique: DateTime
+}
+
+type AvanceInscription {
+  id: Float!
+  name: String!
+  description: String!
+  paiementDate: DateTime!
+  dateLine: DateTime
+  montant: Float!
+  complete: Boolean!
+  reste: Float!
+}
+
+type Inscription {
+  id: ID!
+  name: String
+  description: String
+  complete: Boolean!
+  montant: Float!
+  reste: Float!
+}
+
+type Localisation {
+  id: ID!
+  ville: String
+  region: String
+  pays: String
+  quartier: String
+  longitude: Float!
+  latitude: Float!
+  bp: String
+}
+
+type Student {
+  id: ID!
+  matricule: String
+  age: Float
+  birthdate: DateTime
+  old: Boolean!
+  exclut: Boolean!
+  inscriptionComplete: Boolean!
+  lastSchool: String
+}
+
+type Parent {
+  id: Float!
+  situationMatrimonial: String
+  sexe: String
+  birthDate: DateTime
+  fonction: String
+  parent: Boolean!
+  tuteur: Boolean!
+  childNumber: Float!
+}
+
+type User {
+  id: String!
+  email: String
+  password: String
+  firstName: String
+  lastName: String
+  name: String!
+  phoneNumber: String
+  active: Boolean!
+  deactivatedAt: DateTime
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+type Query {
+  findAll: [Parent!]!
+  user(id: String!): User!
+  student(id: String!): Student!
+  localisation(id: String!): Localisation!
+  categorieEleve(id: String!): CategorieEleve!
+  personnel(id: String!): Personnel!
+  salaireBase(id: String!): SalaireBase!
+  prime(id: String!): Prime!
+  categoriePrime(id: String!): CategoriePrime!
+  categoriePersonnel(id: String!): CategoriePersonnel!
+  categorieRetenu(id: String!): CategoriePrime!
+  primePersonnel(id: String!): PrimePersonnel!
+  periode(id: String!): Periode!
+  retenuPersonnel(id: String!): RetenuPersonnel!
+  section(id: String!): Section!
+  cycle(id: String!): Cycle!
+  niveaEtude(id: String!): NiveauEtude!
+  etatInscriptionNiveau(id: String!): NiveauEtude!
+  sectionCycle(id: String!): SectionCycle!
+  etatInscription(id: String!): SectionCycle!
+  salle(id: String!): Salle!
+  etatInscriptionSalle(id: String!): Salle!
+  findAllAnnerAccademique: [AnneeAccademique!]!
+  anneeAccademique(id: String!): AnneeAccademique!
+  tranche(id: String!): Tranche!
+  pension(id: String!): Pension!
+  fraisExamen(id: String!): FraisExamen!
+  trancheStudent(id: String!): TrancheStudent!
+  inscription(id: String!): Inscription!
+  avanceInscription(id: String!): AvanceInscription!
+  fraisInscription(id: String!): FraisInscription!
+  parent(id: String!): Parent!
+}
+
+type Mutation {
+  create(retenuPersonnel: RetenuPersonnelCreateInput!): RetenuPersonnel!
+  createStudent(student: StudentCreateInput!): Student!
+  updateStudent(input: StudentCreateInput!): Student!
+  createLocalisation(createLocalisation: LocalisationCreateInput!): Localisation!
+  createSection(section: SectionCreateInput!): Section!
+  createCycle(cycle: CycleCreateInput!): Cycle!
+  createNiveau(niveauEtude: NiveauEtudeCreateInput!): NiveauEtude!
+  createSectionCycle(sectionCyvle: SectionCycleCreateInput!): SectionCycle!
+  createSalle(salle: SalleCreateInput!): Salle!
+  createAnnerAccademique(anneeAccademique: AnneeAccademiqueCreateInput!): AnneeAccademique!
+  createTranche(tranche: TrancheCreateInput!): Tranche!
+  createPension(pension: PensionCreateInput!): Pension!
+  createFraisExamen(fraisExamen: FraisExamentInput!): FraisExamen!
+  createTrancheStudent(trancheStudent: TrancheStudentCreateInput!): TrancheStudent!
+  createInscription(inscription: InscriptionInput!): Inscription!
+  update(inscription: AvanceInscriptionUpdateInput!): AvanceInscription!
+  createAvanceInscription(avanceInscription: AvanceInscriptionCreateInput!): AvanceInscription!
+  createFraisInscription(fraisInscription: FraisInscriptionInput!): FraisInscription!
+  createParent(parent: ParentCreateInput!): Parent!
+  loginauth(loginuserinput: LoginUserInput!): LoginResponse!
+}
+
+input RetenuPersonnelCreateInput {
+  ID: Float
+  retenu: RetenuCreateInput!
+  personnnel: PersonnelCreateInput!
+}
+
+input RetenuCreateInput {
+  ID: Float
+  nom: String
+  categorieId: String
+  description: String
+  montant: Float! = 0
+  categorieRetenu: CategorieRetenuCreateInput!
+}
+
+input CategorieRetenuCreateInput {
+  ID: Float
+  nom: String
+  description: String
+  type: String
+}
+
+input PersonnelCreateInput {
+  ID: Float
+  situationMatrimonial: String
+  userId: ID
+  sexe: String
+  fonction: String
+  matricule: String
+  childNumber: Float! = 0
+  dateOfBirth: DateTime
+  dateOfStartWork: String
+  user: UserCreateInput!
+}
+
+input UserCreateInput {
+  ID: String
+  email: String
+  password: String
+  firstName: String
+  lastName: String
+  name: String
+  phoneNumber: String
+}
+
+input StudentCreateInput {
+  ID: Float
+  matricule: String
+  birthdate: DateTime
+  lastSchool: String
+  exclut: Boolean! = false
+  old: Boolean! = false
+  user: UserCreateInput
+  salle: SalleCreateInput
+  categorie: CategorieEleveCreateInput
+  localisation: LocalisationCreateInput
+}
+
+input SalleCreateInput {
+  ID: Float
+  name: String
+  description: String
+  effectif: Float! = 0
+  niveau: NiveauEtudeCreateInput!
+}
+
+input NiveauEtudeCreateInput {
+  ID: Float
+  name: String
+  description: String
+  sectionCycle: SectionCycleCreateInput
+}
+
+input SectionCycleCreateInput {
+  ID: Float
+  nom: String
+  description: String
+  cycle: CycleCreateInput
+  section: SectionCreateInput
+}
+
+input CycleCreateInput {
+  ID: Float
+  name: String
+  description: String
+  effectif: Float! = 0
+}
+
+input SectionCreateInput {
+  ID: Float
+  name: String
+  description: String
+  effectif: Float! = 0
+}
+
+input CategorieEleveCreateInput {
+  ID: Float
+  nom: String
+  description: String
+  reduction: RedutionScolariteInput
+}
+
+input RedutionScolariteInput {
+  ID: Float
+  name: String
+  description: String
+  montant: Float! = 0
+  pourcentage: Float! = 0
+}
+
+input LocalisationCreateInput {
+  ID: Float
+  ville: String
+  region: String
+  pays: String
+  quartier: String
+  bp: String
+  latitude: Float! = 0
+  longitude: Float! = 0
+}
+
+input AnneeAccademiqueCreateInput {
+  ID: Float
+  name: String
+  description: String
+  anneeAccademique: DateTime
+}
+
+input TrancheCreateInput {
+  ID: Float
+  name: String
+  description: String
+  montant: Float! = 0
+  dateLine: DateTime!
+  pension: PensionCreateInput!
+}
+
+input PensionCreateInput {
+  ID: Float
+  name: String
+  description: String
+  montant: Float! = 0
+  dateLine: DateTime!
+  salle: SalleCreateInput!
+  anneeAccademique: AnneeAccademiqueCreateInput!
+}
+
+input FraisExamentInput {
+  ID: Float
+  description: String
+  montant: Float! = 0
+  dateLine: DateTime!
+  niveauEtude: NiveauEtudeCreateInput
+  salle: SalleCreateInput!
+  anneeAccademique: AnneeAccademiqueCreateInput!
+}
+
+input TrancheStudentCreateInput {
+  ID: Float
+  name: String
+  description: String
+  regimePaimemnt: String!
+  montant: Float! = 0
+  student: StudentCreateInput!
+  tranche: TrancheCreateInput!
+}
+
+input InscriptionInput {
+  ID: Float
+  name: String
+  description: String
+  montant: Float! = 0
+  dateLine: DateTime!
+  fraisInscription: NiveauEtudeCreateInput
+  student: StudentCreateInput
+  anneeAccademique: AnneeAccademiqueCreateInput!
+}
+
+input AvanceInscriptionUpdateInput {
+  ID: Float
+  name: String
+  description: String
+  montant: Float! = 0
+  reste: Float! = 0
+  inscription: InscriptionInput!
+}
+
+input AvanceInscriptionCreateInput {
+  ID: Float
+  name: String
+  description: String
+  montant: Float! = 0
+  reste: Float! = 0
+  inscription: InscriptionInput!
+}
+
+input FraisInscriptionInput {
+  ID: Float
+  description: String
+  montant: Float! = 0
+  dateLine: DateTime!
+  niveauEtude: NiveauEtudeCreateInput
+  salle: SalleCreateInput!
+  anneeAccademique: AnneeAccademiqueCreateInput!
+}
+
+input ParentCreateInput {
+  ID: Float
+  sexe: String
+  situationMatrimonial: String
+  tuteur: Boolean! = false
+  parent: Boolean! = false
+  childNumber: Float! = 0
+  user: UserCreateInput
+}
+
+input LoginUserInput {
+  phone: String!
+  password: String!
+}
